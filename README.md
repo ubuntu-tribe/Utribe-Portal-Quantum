@@ -46,6 +46,10 @@ This project is prepared for integration with quantum-proof Model Context Protoc
 - Add custom logic for quantum-resistant key management in the authentication or wallet connection process.
 - Use the centralized config in `appkit.ts` to add new networks or adapters as needed.
 
+## Login Auth
+Once User is logged in (Key authenticated and reconstructed) there will be a API backend call to get JWT token for the app.
+- Oliver will add this part next.
+
 ## Getting Started
 1. Install dependencies:
 	 ```sh
@@ -64,6 +68,6 @@ This project is prepared for integration with quantum-proof Model Context Protoc
 - `src/components/ActionButton.vue` — Example of advanced wallet actions
 
 ---
-For questions or contributions, please refer to the code comments or contact the maintainers.
+For questions or contributions, please refer to the code comments or contact the maintainers (Oliver Utribe).
 
 
