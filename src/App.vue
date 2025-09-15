@@ -5,7 +5,7 @@ import AppTopbar from "./components/AppTopbar.vue";
 import { ref } from 'vue';
 import { useConnect, useAccount } from '@wagmi/vue';
 import { useAppKit, createAppKit } from '@reown/appkit/vue';
-import { wagmiAdapter, networks, projectId } from './config/index';
+import { wagmiAdapter, networks, projectId } from './config/appkit';
 import ActionButtonList from "./components/ActionButton.vue";
 import InfoList from "./components/InfoList.vue";
 
@@ -48,7 +48,7 @@ function handleReownConnect() {
                 <div class="flex flex-col items-start gap-4">
                     <h1>AppKit wagmi vue Example</h1>
                     <br></br>
-                    
+
                     <div v-if="isConnected" class="text-green-700">Connected: {{ address }}</div>
                     <div v-if="error" class="text-red-600">{{ error.message }}</div>
 

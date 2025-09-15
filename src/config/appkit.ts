@@ -1,22 +1,20 @@
-import { createAppKit } from '@reown/appkit/vue'
+import { createAppKit } from '@reown/appkit/vue';
+import { WagmiAdapter } from '@reown/appkit-adapter-wagmi';
+import { mainnet, polygon, base, arbitrum, type AppKitNetwork } from '@reown/appkit/networks';
 
-import { wagmiAdapter, networks, projectId } from './index';
+// Central config for all network/projectId/wagmiAdapter/appkit exports
+export const projectId = import.meta.env.VITE_PROJECT_ID || "b56e18d47c72ab683b10814fe9495694"; // this is a public projectId only to use on localhost
+if (!projectId) {
+  throw new Error('VITE_PROJECT_ID is not set');
+}
 
+export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [mainnet, arbitrum, base, polygon];
 
+export const wagmiAdapter = new WagmiAdapter({
+  networks,
+  projectId
+});
 
-
-// export const appkit = createAppKit({
-//   networks,
-//   projectId,
-//   metadata: {
-//     name: 'Utribe Portal',
-//     description: 'Utribe Portal DApp',
-//     url: 'http://localhost:5173',
-//     icons: []
-//   },
-//   features: { analytics: true },
-//   themeMode: 'dark'
-// })
 export const metadata = {
   name: 'Utribe Portal',
   description: 'Utribe Portal DApp',

@@ -1,20 +1,6 @@
-<template>
-    <div>
-      <div v-if="accountData.isConnected">
-        <Button @click="handleDisconnect">Disconnect</Button>
-        <Button @click="switchToNetwork">Switch</Button>
-        <Button @click="handleSignMessage">Sign Message</Button>
-        <Button @click="handleSendTx">Send a Transaction</Button>
-
-        <div v-if="hash">Transaction Hash: {{ hash }}</div>
-      </div>
-      <Button v-else @click="openAppKit">Open</Button>
-    </div>
-  </template>
-  
 <script setup>
 import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitAccount } from "@reown/appkit/vue";
-import { networks } from "../config/index";
+import { networks } from "../config/appkit";
 import { useEstimateGas, useSendTransaction, useSignMessage } from '@wagmi/vue';
 import { parseGwei } from 'viem';
 import { watchEffect } from 'vue';
@@ -77,4 +63,17 @@ const handleSendTx = () => {
   }
 };
 </script>
-  
+
+<template>
+    <div>
+      <div v-if="accountData.isConnected">
+        <Button @click="handleDisconnect">Disconnect</Button>
+        <Button @click="switchToNetwork">Switch</Button>
+        <Button @click="handleSignMessage">Sign Message</Button>
+        <Button @click="handleSendTx">Send a Transaction</Button>
+
+        <div v-if="hash">Transaction Hash: {{ hash }}</div>
+      </div>
+      <Button v-else @click="openAppKit">Open</Button>
+    </div>
+  </template>

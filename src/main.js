@@ -10,7 +10,7 @@ import App from "./App.vue";
 import { appkit } from './config/appkit';
 import { WagmiPlugin } from '@wagmi/vue';
 import { QueryClient, VueQueryPlugin } from '@tanstack/vue-query';
-import { wagmiAdapter } from './config/index';
+import { wagmiAdapter } from './config/appkit';
 
 
 const queryClient = new QueryClient();
